@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:800');
+
+.App {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background-color: #F4F4F4;
+  /* padding: 10%; */
+  padding-top: 10%;
+  min-height: 100vh;
+  color: #565656;
+}
+
+.App h1{
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  font-weight: 700
+}
+
+button {
+  background: none;
+  color: #6D7993;
+  border: none;
+  padding: 5px;;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.scriptureLinks{
+  margin: 10px;
+  margin-top: 8vh;
+  height: 60vh;
+  color: #6D7993;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.scriptureLinksMini{
+   margin: 10px;
+  color: #6D7993;
+}
+
+.scripturLinks div{
+  margin: 5px;
+}
+
+.scriptureLinks select{
+  display: none;
+}
+
+.booksChaps{
+  /* background-color: peachpuff; */
+  margin: 7px;
+}
+
+.booksChapsContainer{
+  /* background-color: aquamarine; */
+  padding: 10px;
+}
+
+.booksChapsContainer h2{
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+
+.chaptersBlock{
+  /* background-color: plum; */
+  margin: 5px;
+}
+
+.wordContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6D7993;
+  color: #F4F4F4;
+  height: 80vh;
+  /* border-radius: 3vw; */
+}
+
+.wordContainer h4{
+  position: fixed;
+  margin-top: -60%;
+}
