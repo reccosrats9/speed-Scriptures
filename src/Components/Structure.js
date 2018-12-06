@@ -7,7 +7,8 @@ export default class Structure extends Component {
             chapter: '',
             text: [],
             fullText: '',
-            word: ''
+            word: '', 
+            i:0
         }
     }
 
@@ -17,6 +18,7 @@ export default class Structure extends Component {
         let fullText = ''
         selectedBook.books[bookIndex].chapters[chapIndex].verses.forEach(verse => text.push({ verse: verse.verse, text: verse.text + ' ' }))
         text.forEach(verse => fullText += verse.text)
+        fullText=fullText.split(' ')
         this.setState({ chapter, text, fullText })    
     }
 
@@ -27,15 +29,18 @@ export default class Structure extends Component {
     }
 
     timeOutCounter = () => {
-        let {speed} = this.props
-        let fullText = this.state.fullText.split(' ')
-        let i = 0
-        setInterval(() => {
-            if (i < fullText.length) {
-                this.setState({ word: fullText[i] })
-                i++
-            }
-        }, speed)
+        let { fullText, i } = this.state
+        if (i < fullText.length) {
+            this.timer(i)
+        } else if (i >= fullText.length) {
+            this.setState({ i: 0, word: '' })
+        }
+    }
+
+    timer = (i) => {
+        setTimeout(() => {
+            this.setState({ word: this.state.fullText[i], i: i + 1 }, this.timeOutCounter)
+        }, this.props.speed)
     }
 
     render() {
