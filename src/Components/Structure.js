@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Pause from '@material-ui/icons/PauseCircleFilled'
+import Play from '@material-ui/icons/PlayCircleFilled'
 
 export default class Structure extends Component {
     constructor() {
@@ -8,8 +10,13 @@ export default class Structure extends Component {
             text: [],
             fullText: '',
             word: '', 
-            i:0
+            i: 0,
+            paused: false
         }
+    }
+
+    togglePause = () => {
+        this.setState({ paused: !this.state.paused }, this.timeOutCounter)
     }
 
     updateChapter = (chapter, bookIndex, chapIndex) => {
@@ -29,8 +36,8 @@ export default class Structure extends Component {
     }
 
     timeOutCounter = () => {
-        let { fullText, i } = this.state
-        if (i < fullText.length) {
+        let { fullText, i, paused } = this.state
+        if (i < fullText.length && !paused) {
             this.timer(i)
         } else if (i >= fullText.length) {
             this.setState({ i: 0, word: '' })
@@ -74,6 +81,9 @@ export default class Structure extends Component {
                 } else {
                     return (
                         <div className="wordContainer">
+                            {this.state.paused ?
+                                <Play style={{ color: 'F4F4F4', height: 50, width: 50, position: 'fixed', top: '25vh' }} onClick={this.togglePause} />
+                                : <Pause style={{ color: 'F4F4F4', height: 50, width: 50, position: 'fixed', top: '25vh' }} onClick={this.togglePause} />}
                             <h4>{chapter}</h4>
                             <h1 className='word' >{word}</h1>
                         </div>

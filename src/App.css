@@ -76,11 +76,11 @@ button {
   align-items: center;
   background-color: #6D7993;
   color: #F4F4F4;
-  height: 80vh;
+  height: 85vh;
   /* border-radius: 3vw; */
 }
 
 .wordContainer h4{
   position: fixed;
-  margin-top: -60%;
+  top: 20vh;
 }
